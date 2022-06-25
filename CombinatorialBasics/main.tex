@@ -1,0 +1,35 @@
+\documentclass[11pt,a4paper]{book}
+
+% Packages
+\usepackage{assets/defpackages}
+\usepackage{mathcmd}
+\usepackage{optionalcmd}
+
+\usepackage{lmodern}
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+
+% Assets
+\def\hmargin{18mm}
+\def\vmargin{25mm}
+
+\input{assets/geometry.tex}
+
+% Title page info
+\def\maintitle{Základy středoškolské kombinatoriky}
+\def\authorname{\textsc{David Weber}}
+\def\email{david.weber99@seznam.cz}
+\def\currentdate{\today}
+
+\begin{document}
+    
+    % Title page
+    \include{components/titlepage.tex}
+
+    \tableofcontents
+
+    % Main content
+    \include{components/chapter01/chapter01.tex}
+    \include{components/chapter02/chapter02.tex}
+
+\end{document}
