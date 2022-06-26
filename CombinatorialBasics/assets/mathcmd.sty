@@ -1,0 +1,77 @@
+\NeedsTeXFormat{LaTeX2e}
+
+% Math
+\RequirePackage{amsmath}				% Definice fce pomocí "závorek"
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+\RequirePackage{xifthen}				% provides \isempty test
+
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Věta}[section]
+\newtheorem*{theorem*}{Věta}
+
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+
+\newtheorem{assertion}[theorem]{Tvrzení}
+\newtheorem*{assertion*}{Tvrzení}
+
+
+\theoremstyle{definition}
+\newtheorem{exercise}[theorem]{Úloha}
+
+\newtheorem{example}[theorem]{Příklad}
+\newtheorem*{example*}{Příklad}
+
+\newtheorem{definition}[theorem]{Definice}
+\newtheorem*{definition*}{Definice}
+
+\newtheorem{corollary}[theorem]{Důsledek}
+\newtheorem*{corollary*}{Důsledek}
+
+\newtheorem{remark}[theorem]{Poznámka}
+\newtheorem*{remark*}{Poznámka}
+
+\newtheorem{convention}[theorem]{Úmluva}
+\newtheorem*{convention*}{Úmluva}
+
+\newcommand{\abs}[1]{\left|\,#1\,\right|}
+
+%%% Prostor reálných čísel, přirozených čísel, ...
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+
+% Goniometric functions
+\DeclareMathOperator{\tg}{tg}
+\DeclareMathOperator{\cotg}{cotg}
+
+% Sets
+\newcommand{\sizeof}[1]{\left| #1 \right|}
+\newcommand{\solutions}[1]{\left[K=\left\{#1\right\}\right]}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\admid}{\;\middle\vert\;}
+
+% Geometry
+\renewcommand{\vector}[1]{\overrightarrow{#1}}
+
+% Double underlining for corrent answer
+\def\doubleunderline#1{\underline{\underline{#1}}}
+
+% Solution environment
+\newenvironment{solution}[1][]
+{\begin{proof}[Řešení\ifthenelse{\isempty{#1}}{}{ (#1)}]}
+{\end{proof}}
+
+% Rectange for missing information
+\newcommand{\rectangle}{{%
+  \ooalign{$\sqsubset\mkern3mu$\cr$\mkern3mu\sqsupset$\cr}%
+}}
+
+% Logical operators
+\renewcommand{\implies}{\Rightarrow}
+\renewcommand{\iff}{\Leftrightarrow}

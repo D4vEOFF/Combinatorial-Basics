@@ -2,17 +2,20 @@
 
 % Packages
 \usepackage{assets/defpackages}
-\usepackage{mathcmd}
+\usepackage{assets/mathcmd}
 \usepackage{optionalcmd}
 
 \usepackage{lmodern}
 \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 \usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\MakeOuterQuote{"}
 
 % Assets
 \def\hmargin{18mm}
 \def\vmargin{25mm}
 
+\input{assets/macros.tex}
 \input{assets/geometry.tex}
 
 % Title page info
