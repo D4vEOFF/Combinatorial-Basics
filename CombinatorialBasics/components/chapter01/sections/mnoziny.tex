@@ -22,4 +22,31 @@ V případě většího počtu prvků, avšak s jistou strukturou, můžeme mno�
     \end{equation*}
 \end{example}
 
-Důležitou vlastností množin je, že neuvažujeme násobné výskyty prvků. Tedy např. množiny $M=\set{1,\,2,\,3}$ a $N=\set{1,\,2,\,2,\,3,\,3}$ jsou si rovny, tj. $M=N$.
+Důležitou vlastností množin je, že neuvažujeme násobné výskyty prvků. Tedy např. množiny $M=\set{1,\,2,\,3}$ a $N=\set{1,\,2,\,2,\,3,\,3}$ jsou si rovny, tj. $M=N$. Též je vhodné si připomenout, že chceme-li vyjádřit, že libovolný prvek $a$ je v množině $A$, pak píšeme $a \in A$ (čteme "$a$ náleží množině $A$"). Naopak v případě, že prvek $a$ nenáleží množině $A$, píšeme $a \notin A$.\par
+Podstatnou vlastností pro nás budou operace \emph{sjednocení}, \emph{průniku} a \emph{rozdílu} množin.
+
+\begin{definition}[Sjenocení, průnik a rozdíl]\label{def:mnozinove_operace}
+    Mějme množiny\footnote{Mohou být \textbf{konečné} i \textbf{nekonečné}, avšak nás budou zajímat konečné množiny.} $A,\,B$. Pak definujeme:
+    \begin{enumerate}[label=(\roman*)]
+        \item sjednocení $A \cup B = \set{x \admid x\in A \lor x\in B}$, tj. výsledná množina obsahuje prvky množiny $A$ a zároveň prvky množiny $B$.
+        \item průnik $A \cap B = \set{x \admid x\in A \land x\in B}$, tj. výsledná množina obsahuje \emph{pouze} prvky, které náleží oběma množinám.
+        \item rozdíl $A \setminus B = \set{x \admid x\in A \land x \notin B}$, tj. výsledná množina obsahuje pouze ty prvky z množiny $A$, které nenáleží množině $B$.
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    Pro množiny\footnote{U množiny $Y$ si uvědomme, že prvek $\set{z}$ není to samé jako prvek $z$, tedy např. po sjednocení se ve výsledné množině vyskytnou oba.} $X=\set{x,\,y,\,z}$ a $Y=\set{x,z,\set{z},w}$ platí
+    \begin{itemize}
+        \item $X \cup Y = \set{x,\,y,\,z} \cup \set{x,z,\set{z},w}=\set{x,\,y,\,z,\,x,z,\set{z},w}=\set{x,\,y,\,z,\,\set{z},w}$,
+        \item $X \cap Y = \set{x,\,y,\,z} \cap \set{x,z,\set{z},w}=\set{x,\,z}$,
+        \item $X \setminus Y = \set{x,\,y,\,z} \setminus \set{x,z,\set{z},w}=\set{x,\,z}=\set{y}$.
+    \end{itemize}
+    Zkuste si výsledky operací porovnat s definicí \ref{def:mnozinove_operace} výše.
+\end{example}
+
+Pro větší počet množin můžeme využít pro zápis sjednocení tzv. \emph{velké operátory} $\bigcup,\,\bigcap$. Máme-li tedy množiny $X_1,\,X_2,\,\dots,\,X_n$, můžeme jejich sjednocení, resp. průnik zapsat jako
+\begin{equation*}
+    \bigcup\limits_{i=1}^{n}X_i = X_1 \cup X_2 \cup \dots \cup X_n\;\;\;\text{resp.}\;\;\;\bigcap\limits_{i=1}^{n}X_i = X_1 \cap X_2 \cap \dots \cap X_n
+\end{equation*}
+
+Poslední, co nás bude zajímat, je velkost množiny. Tu budeme označovat svislými čarami, tedy např. velikost množiny $X$ zapíšeme jako $\sizeof{X}$. Konkrétně např. pro množinu $A=\set{-1,\,0,10,20}$ je velikost $\sizeof{A}=4$.

@@ -5,6 +5,7 @@
 \usepackage{assets/mathcmd}
 \usepackage{optionalcmd}
 
+\usepackage[numbers]{natbib}
 \usepackage{lmodern}
 \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 \usepackage[T1]{fontenc}
@@ -34,5 +35,17 @@
     % Main content
     \include{components/chapter01/chapter01.tex}
     \include{components/chapter02/chapter02.tex}
+
+    % Bibliography
+    
+    \renewcommand{\bibname}{Seznam použité literatury}
+
+    % \bibliographystyle{plainnat}    %% Autor (rok) s anglickými spojkami
+    \bibliographystyle{unsrtnat}       %% [číslo]
+    % \bibliographystyle{alpha}
+
+    %%% Vytvoření seznamu literatury. Pozor, pokud jste necitovali ani jednu
+    %%% položku, seznam se automaticky vynechá.
+    \bibliography{components/bibliography.bib}
 
 \end{document}

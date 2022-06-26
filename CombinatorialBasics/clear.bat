@@ -1,1 +1,0 @@
-del *.log *.dvi *.aux *.toc *.lof *.lot *.out *.bbl *.blg *.xmpi *.synctex.gz /f /s
