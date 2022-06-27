@@ -63,9 +63,13 @@
 \def\doubleunderline#1{\underline{\underline{#1}}}
 
 % Solution environment
-\newenvironment{solution}[1][]
-{\begin{proof}[Řešení\ifthenelse{\isempty{#1}}{}{ (#1)}]}
-{\end{proof}}
+\newenvironment{solution}[1][]{
+  \textit{\ifthenelse{\equal{#1}{}}
+  {Řešení}
+  {#1}}.
+}{
+\hspace*{\fill}$\qedsymbol$\par\medskip
+}
 
 % Rectange for missing information
 \newcommand{\rectangle}{{%
