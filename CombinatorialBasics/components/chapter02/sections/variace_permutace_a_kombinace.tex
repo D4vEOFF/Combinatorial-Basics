@@ -1,1 +1,101 @@
 \section{Variace, permutace a kombinace}
+
+Nyní trochu rozšíříme na repertoár nástrojů. Zatím jsme řešili úlohy, kde jsme vybírali vždy "po jednom" prvku, abychom dosáhli jisté konfigurace. Nyní se podíváme, jakých výsledků dosáhneme v případě, kdy budeme již vybírat nějaké $k$-tice z nějaké $n$ prvkové množiny objektů.\par
+Je třeba si rozmyslet dva základní případy:
+\begin{itemize}
+    \item výběr $k$-tic, kde \textbf{záleží na pořadí},
+    \item výběr $k$-tic, kde \textbf{nezáleží na pořadí}.
+\end{itemize}
+S prvním případem jsme již do jisté míry obeznámeni, neboť u úloh, které jsme řešili, vždy záleželo na pořadí. To tedy vede na sestavování tzv. \emph{uspořádaných $k$-tic}, které jsme již zmínili ve formulaci kombinatorického pravidla součinu \ref{thm:pravidlo_soucinu}. Těm říkáme tzv. \textbf{variace $k$-té třídy z $n$ prvků}. Tedy např. variací 2. třídy z množiny $\set{1,\,2,\,3}$ je třeba
+\begin{equation*}
+    (1,\,3)\;\;\;\text{nebo}\;\;\;(3,\,1).
+\end{equation*}
+
+Druhý případ je pro nás novinkou. Vybíráme totiž tzv. \emph{neuspořádané $k$-tice}, tzn. vybereme-li např. z množiny $\set{a,\,b,\,c}$ neuspořádanou dvojici sestávající z prvků $a$ a $c$, pak je to stejné jako výběr neuspořádané dvojice sestávající z prvků $c$ a $a$. Takový výběr nazýváme \textbf{kombinací $k$-té třídy z $n$ prvků}.
+
+Zatím se omezíme na tzv. variace, resp. kombinace \textbf{bez opakování}.
+
+\subsection{Výběry bez opakování}
+
+Výběrem bez opakování rozumíme výběr $k$-tice prvků takové, že se v ní žádný prvek neopakuje, tzn. každý je v ní nejvýše jednou. Tedy rozlišujeme
+\begin{itemize}
+    \item \emph{variace bez opakování} a
+    \item \emph{kombinace bez opakování}.
+\end{itemize}
+Pojďme se nyní podívat na metody jejich výpočtu.
+
+\begin{theorem}[Variace bez opakování]\label{thm:variace_bez_opakovani}
+    Počet uspořádaných $k$-tic sestavených z $n$-prvkové množiny tak, že se každý prvek ve výběru vyskytne nejvýše jednou, je roven
+    \begin{equation*}
+        \prod_{i=1}^{k}(n-i+1)=n(n-1)(n-2)\cdots(n-k+1).
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Tento fakt přímo plyne z kombinatorického pravidla součinu. Na první pozici máme $n$ možností výběru, na druhé $n-1$ možností, \dots a pro $k$-tý člen máme $n-k+1$ možností. Tedy celkově $n(n-1)\cdots(n-k+1)$ možností.
+\end{proof}
+
+Počet variací $k$-té třídy z $n$-prvkové množiny bez opakování budeme značit $V_k(n)$.
+
+\begin{exercise}
+    Ve třídě, kde je celkem 25 dětí, si žáci volí nového pokladníka, šatnáře a službu na tabuli, přičemž jeden žák nesmí zastávat více pozic zároveň. Kolika různými způsoby si může třída zvolit žáky na dané pozice.
+\end{exercise}
+\begin{solution}
+    V tomto případě jistě záleží na pořadí výběru (vybrat žáka na pozici šatnáře není jistě to samé, jako jej vybrat na pozici pokladníka). Tedy budeme počítat variace 3. třídy z 25 prvků bez opakování, tedy existuje
+    \begin{equation*}
+        V_3(25)\stackrel{\ref{thm:variace_bez_opakovani}}{=}25\cdot(25-1)\cdot(25-2)=25\cdot 24\cdot 23=13 800\;\text{způsobů.}
+    \end{equation*}
+\end{solution}
+
+Dalším důležitým, a zatím nezmíněným termínem, je tzv. \emph{permutace}. Permutací rozumíme libovolné uspořádání $n$ prvků do řady. Tedy např. 5, 3, 2, 4, 1 je permutace množiny $\set{1,\,2,\,3,\,4,\,5}$. Permutace lze interpretovat jako uspořádané $n$-tice, což z nich dělá speciální případ variace (výběr uspořádané $n$-tice z $n$ prvkové množiny). Stejně jako u variací a kombinací rozlišujeme permutace s opakováním a bez opakování.
+\begin{theorem}[Permutace bez opakování]
+    Počet uspořádaných $n$-tic z $n$-prvkové množiny tak, že se každý prvek ve výběru vyskytne nejvýše jednou, je
+    \begin{equation*}
+        \prod_{i=1}^{n}i=n(n-1)(n-2)\dots 2\cdot 1.
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Permutace je speciálním případem variace pro $k=n$, tedy $V_n(n)\stackrel{\ref{thm:variace_bez_opakovani}}{=}n(n-1)(n-2)\cdots 2\cdot 1$.
+\end{proof}
+
+\begin{definition}[Faktoriál]
+    Je-li $n\in\N$, pak definujeme číslo
+    \begin{equation*}
+        n!=n(n-1)(n-2)\cdots 2\cdot 1=\prod_{i=1}^{n}i,
+    \end{equation*}
+    které nazýváme \emph{faktoriál} (čteme "$n$ faktoriál").
+\end{definition}
+
+Číslo $n!$ tedy vyjadřuje počet permutací $n$ prvkové množiny\footnote{Podobně jako pro variace, i pro permutaci $n$ prvkové množiny se zřídka používá značení $P(n)$. Avšak je tomu tak málokdy, neboť často se při výpočtech píše rovnou $n!$.}.
+
+\begin{exercise}
+    Z 10 knih je 6 psáno česky a zbylé 4 latinsky. Kolika různými způsoby lze daná knihy umístit na poličku, jestliže všechny knihy psané česky mají být vedle sebe a všechny latinsky psané vedle sebe?\cite{Havrlant2022}
+\end{exercise}
+\begin{solution}
+    Všechny české knihy chceme seřadit vedle sebe, tj. jedná se o permutaci na šesti prvcích, kterých je $6!$. Podobně latinsky psané knihy lze vedle sebe seřadit $4!$ způsoby. Seřazení český a latinských knih jsou na sobě nezávislá a tedy podle kombinatorického pravidla součinu existuje
+    \begin{equation*}
+        6!\cdot 4!=(6\cdot 5\cdot 4\cdot 3\cdot 2\cdot 1)\cdot(4\cdot 3\cdot 2\cdot 1)=720\cdot 24=17 280\;\text{možností.}
+    \end{equation*}
+\end{solution}
+
+Zatím jsme se zabývali uspořádanými $k$-ticemi (variace a permutace), jejichž důležitou vlastností bylo, že záleželo na pořadí. Pokud ovšem chceme od pořadí upustit a soustředit se jen na vybrané prvky, budeme muset náš výpočet lehce upravit.
+
+\begin{theorem}[Kombinace bez opakování]\label{thm:kombinace_bez_opakovani}
+    Počet neuspořádaných $k$-tic sestavených z prvků $n$ prvkové množiny tak, že se každý prvek ve výběru vyskytne nejvýše jednou, je roven
+    \begin{equation*}
+        \dfrac{n(n-1)(n-2)\cdots(n-k+1)}{k!}=\dfrac{1}{k!}\prod_{i=1}^{k}(n-i+1)
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Naši úvahu můžeme založit na následujícím pozorování: máme-li nějakou \emph{neuspořádanou} $k$-tici prvků z $n$ prvkové množiny, pak existuje přesně $k!$ způsobů, jak vybrané prvky uspořádat do řady, čímž z ní vytvoříme \emph{uspořádanou} $k$-tici. To znamená, že platí
+    \begin{equation*}
+        (\text{počet uspořádaných $k$-tic})=k!\cdot(\text{počet neuspořádaných $k$-tic}).
+    \end{equation*}
+    Počet neuspořádaných $k$-tic umíme vypočítat podle věty \ref{thm:variace_bez_opakovani}, tedy máme
+    \begin{equation*}
+        \prod_{i=1}^{k}(n-i+1)=k!\cdot(\text{počet neuspořádaných $k$-tic}).
+    \end{equation*}
+    Vydělíme-li rovnost číslem $k!$, dostaneme požadovaný výraz, tj.
+    \begin{equation*}
+        (\text{počet neuspořádaných $k$-tic})=\dfrac{1}{k!}\prod_{i=1}^{k}(n-i+1)
+    \end{equation*}
+\end{proof}

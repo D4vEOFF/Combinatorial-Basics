@@ -17,10 +17,10 @@ Vezměme si pro začátek jednu motivační úlohu.
     \end{equation*}
 \end{solution}
 
-Ačkoliv jsme úlohu \ref{exercise:addition_principle} jsme řešili sice trochu složitě, avšak intuitivně je tento způsob nejspíše jasný. Máme-li $n_1$ způsobů, jak provést určitou akci a $n_2$ způsobů, jak provést nějakou jinou akci (kterou nelze provést současně s první), pak máme dohromady $n_1+n_2$ způsobů, jak vybrat některou činnost.\par
+Ačkoliv jsme úlohu \ref{exercise:addition_principle} jsme řešili sice trochu složitě, intuitivně je tento způsob nejspíše jasný. Máme-li $n_1$ způsobů, jak provést určitou akci a $n_2$ způsobů, jak provést nějakou jinou akci (kterou nelze provést současně s první), pak máme dohromady $n_1+n_2$ způsobů, jak vybrat některou činnost.\par
 Z tohoto jednoduchého principu plyne tzv. \emph{kombinatorické pravidlo součtu}, které budeme v dalších úlohách využívat.
 
-\begin{theorem}[Kombinatorické pravidlo součtu]
+\begin{theorem}[Kombinatorické pravidlo součtu]\label{thm:pravidlo_souctu}
     Jsou-li $X_1,\,X_2,\,\dots,\,X_n$ konečné množiny, které jsou po dvou disjunktní, pak platí
     \begin{equation*}
         \sizeof{X_1\cup X_2\cup\dots\cup X_n}=\sizeof{X_1}+\sizeof{X_2}+\dots+\sizeof{X_n}
@@ -47,13 +47,13 @@ Chceme zjistit počet všech způsobů, jak se dostat z města $A$ do města $C$
 To znamená, že celkový počet cest $\sizeof{P}=\sizeof{P_1}+\sizeof{P_2}+\sizeof{P_3}=4+4+4=3\cdot 4=12.$.\par
 Tento způsob je jistě velmi nepraktický a navíc je celkem očividné, že na daný výsledek jsme mohli přijít hned. Stačilo vynásobit počet cest mezi městy $A$ a $B$ a počet cest mezi městy $B$ a $C$. Z toho dostáváme druhé kombinatorické pravidlo:
 
-\begin{theorem}[Kombinatorické pravidlo součinu]\label{def:pravidlo_soucinu}
+\begin{theorem}[Kombinatorické pravidlo součinu]\label{thm:pravidlo_soucinu}
     Počet uspořádaných $k$-tic, jejichž $i$-tý člen lze vybrat $n_i$ způsoby je roven
     \begin{equation*}
         n_1\cdot n_2\cdot\dots\cdot n_k = \prod_{i=1}^{k}n_i
     \end{equation*}
 \end{theorem}
-Je důležité zmínit, že jednotlivé výběry \textbf{musí být nezávislé}, tedy výběr na jednu pozici nesmí ovlivnit počet výběrů na ostatní pozice. Méně formálně, avšak užitečněji, můžeme pravidlo formulovat i takto: \textit{Lze-li první výběr provést celkem $n$ způsoby a druhý výběr $m$ způsoby bez ohledu na první výběr, pak celkový počet dvojic možných výběrů je $nm$.} (Pochopitelně, toto lze zobecnit na libovolný počet výběrů, jako je tomu v \ref{def:pravidlo_soucinu}.)
+Je důležité zmínit, že jednotlivé výběry \textbf{musí být nezávislé}, tedy výběr na jednu pozici nesmí ovlivnit počet výběrů na ostatní pozice. Méně formálně, avšak užitečněji, můžeme pravidlo formulovat i takto: \textit{Lze-li první výběr provést celkem $n$ způsoby a druhý výběr $m$ způsoby bez ohledu na první výběr, pak celkový počet dvojic možných výběrů je $nm$.} (Pochopitelně, toto lze zobecnit na libovolný počet výběrů, jako je tomu v \ref{thm:pravidlo_soucinu}.)
 
 \begin{exercise}
     Křídy jsou vyráběny
