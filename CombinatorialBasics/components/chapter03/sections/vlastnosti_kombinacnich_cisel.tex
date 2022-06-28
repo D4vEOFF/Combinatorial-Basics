@@ -1,0 +1,22 @@
+\section{Vlastnosti kombinačních čísel}
+
+V této sekci se budeme \emph{především} (avšak ne vždy) držet naší původní definice kombinačního čísla z \ref{def:kombinacni_cislo}, tj.
+\[\binom{n}{k}=\dfrac{n(n-1)(n-2)\cdots(n-k+1)}{k!},\]
+a to právě kvůli již zmíněné vlastnosti, že oproti
+\[\dfrac{n!}{(n-k)!k!}\]
+dává výraz smysl i pro $k>n$ a je vždy roven nule (ostatně i z kombinatorického hlediska dává tento výsledek smysl). Nebudeme se tak muset explicitně odvolávat na předpoklad, že $n\leqslant k$, abychom předešli formálním nepřesnostem.
+\medskip
+
+U kombinačních čísel lze pozorovat některé zajímavé vlastnosti. Začneme asi tou nejzákladnější.
+\begin{theorem}[Symetrie kombinačních čísel]
+    Pro $n,\,k\in\N_0$, kde $k\leqslant n$, platí
+    \[\binom{n}{k}=\binom{n}{n-k}.\]
+\end{theorem}
+\begin{proof}[Důkaz první]
+    Asi nejjednodušší důkaz je přímým výpočtem:
+    \[\binom{n}{n-k}=\dfrac{n!}{(n-(n-k))(n-k)!}=\dfrac{n!}{k!(n-k)!}=\binom{n}{k}.\]
+\end{proof}
+\begin{proof}[Důkaz druhý]
+    Názornější důkaz nám poskytne kombinatorická interpretace tohoto tvrzení. Libovolná $k$-tice (v tomto smyslu množina) je jednoznačně určena výběrem prvků z nějaké $n$ prvkové množiny, které jí budou náležet. Výběrem $k$ prvků z dané množiny tak zbude $n-k$ prvků, které nejsou součástí dané $k$-tice.
+    \todo{obrázek}
+\end{proof}
