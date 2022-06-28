@@ -2,11 +2,11 @@
 
 Vezměme si pro začátek jednu motivační úlohu.
 
-\begin{exercise}
+\begin{task}
     \textit{Předpokládejme, že chceme zjistit počet různých kurzů nabízených Wisconsinskou univerzitou v Madisonu. Kurzy rozdělíme podle oddělení, na kterém jsou uvedeny. Za předpokladu, že nedochází ke křížovému vypisování (křížové vypisování nastává, když je stejný kurz vypsán na více než jedné katedře), kolik předmětů si můžeme jako studenti zapsat?} \citep[str. 28]{Brualdi2018}
-\end{exercise}
+\end{task}
 
-\begin{solution}\label{exercise:addition_principle}
+\begin{solution}\label{task:addition_principle}
     K problému můžeme přistoupit následovně: předměty si postupně rozdělíme do množin. Množinu všech dostupných předmětů si označíme $C$ (z angl. \emph{classes}). To znamená, že hledáme $\sizeof{C}$. Předměty si rozdělíme do množin podle katedry, která je nabízí. Tedy máme-li na univerzitě, pro zjednodušení, např. 5 kateder, pak se nám předměty rozdělí do pěti množin, které si označíme $C_1,\,\dots,\, C_5$. Množina všech předmětů $C$ je jednoduše sjednocením předmětů z jednotlivých kateder $C_1,\,\dots,\, C_5$, tj.
     \begin{equation*}
         C=\bigcup\limits_{i=1}^{5}C_i=C_1\cup C_2\cup C_3\cup C_4\cup C_5\,.
@@ -17,7 +17,7 @@ Vezměme si pro začátek jednu motivační úlohu.
     \end{equation*}
 \end{solution}
 
-Ačkoliv jsme úlohu \ref{exercise:addition_principle} jsme řešili sice trochu složitě, intuitivně je tento způsob nejspíše jasný. Máme-li $n_1$ způsobů, jak provést určitou akci a $n_2$ způsobů, jak provést nějakou jinou akci (kterou nelze provést současně s první), pak máme dohromady $n_1+n_2$ způsobů, jak vybrat některou činnost.\par
+Ačkoliv jsme úlohu \ref{task:addition_principle} jsme řešili sice trochu složitě, intuitivně je tento způsob nejspíše jasný. Máme-li $n_1$ způsobů, jak provést určitou akci a $n_2$ způsobů, jak provést nějakou jinou akci (kterou nelze provést současně s první), pak máme dohromady $n_1+n_2$ způsobů, jak vybrat některou činnost.\par
 Z tohoto jednoduchého principu plyne tzv. \emph{kombinatorické pravidlo součtu}, které budeme v dalších úlohách využívat.
 
 \begin{theorem}[Kombinatorické pravidlo součtu]\label{thm:pravidlo_souctu}
@@ -55,7 +55,7 @@ Tento způsob je jistě velmi nepraktický a navíc je celkem očividné, že na
 \end{theorem}
 Je důležité zmínit, že jednotlivé výběry \textbf{musí být nezávislé}, tedy výběr na jednu pozici nesmí ovlivnit počet výběrů na ostatní pozice. Méně formálně, avšak užitečněji, můžeme pravidlo formulovat i takto: \textit{Lze-li první výběr provést celkem $n$ způsoby a druhý výběr $m$ způsoby bez ohledu na první výběr, pak celkový počet dvojic možných výběrů je $nm$.} (Pochopitelně, toto lze zobecnit na libovolný počet výběrů, jako je tomu v \ref{thm:pravidlo_soucinu}.)
 
-\begin{exercise}
+\begin{task}
     Křídy jsou vyráběny
     \begin{itemize}
         \item ve 3 různých barvách,
@@ -63,26 +63,26 @@ Je důležité zmínit, že jednotlivé výběry \textbf{musí být nezávislé}
         \item a o 4 různých průměrech.
     \end{itemize}
     Kolik typů kříd celkově lze zakoupit? \citep[str. 29]{Brualdi2018}
-\end{exercise}
+\end{task}
 \begin{solution}
     Barvu křídy můžeme vybrat celkem třemi způsoby, délku osmi způsoby a průměr křídy celkem čtyřmi způsoby. Protože výběry jsou na sobě nezávislé, pak podle předchozího pravidla součinu existuje celkem $3\cdot 8\cdot 4=96$ typů kříd.
 \end{solution}
 
-\begin{exercise}
+\begin{task}
     Kolik čtyřciferných přirozených čísel lze sestavit z cifer 0, 1, 2, 3, 4, 5, jestliže
     \begin{enumerate}[label=(\alph*)]
         \item cifry se mohou opakovat,
         \item cifry se nemohou opakovat?
     \end{enumerate}
     (Úloha i řešení \citep[str. 7]{Slavik2022}.)
-\end{exercise}
-\begin{solution}{Řešení (a)}
+\end{task}
+\begin{solution}[Řešení (a)]
     Protože se cifry mohou opakovat, pak na každé číselné pozici máme stejný počet možností výběru číslici, až na první pozici, neboť nemůžeme vybrat číslici 0 (jinak by se nejednalo o \emph{čtyřciferné} číslo). Na první pozici máme tak 5 možností výběru a na zbylých třech máme 6 možností, tj. celkově existuje
     \begin{equation*}
         5\cdot 6\cdot 6\cdot 6 = 1080\;\text{možností.}
     \end{equation*}
 \end{solution}
-\begin{solution}{Řešení (b)}
+\begin{solution}[Řešení (b)]
     Tentokrát se cifry nesmí opakovat. Úvaha tak zůstává stejná, ale při určování počtu možností výběru musíme zohlednit již vybrané číslice. Na první pozici tak máme 5 možností výběru (nesmíme vybrat nulu), na druhé pozici máme 5 možností (původně jsme měli 6, ale jednu cifru jsme již použili na první pozici), na třetí pozici máme 4 možnosti (2 číslice jsme již použili) a na čtvrté pozici máme 3 možnosti. Celkově tak existuje
     \begin{equation*}
         5\cdot 5\cdot 4\cdot 3=300\;\text{možností.}
@@ -91,9 +91,9 @@ Je důležité zmínit, že jednotlivé výběry \textbf{musí být nezávislé}
 
 Kombinatorické pravidlo součtu a součinu však můžeme v různých úlohách kombinovat. Speciálně, pokud si tak ulehčíme hledání určených konfigurací.
 
-\begin{exercise}
+\begin{task}
     Kolik sudých čísel čtyřciferných přirozených čísel lze sestavit z cifer 0, 1, 2, 3, 4, 5, jestliže se nesmí opakovat? (Úloha i řešení \citep[str. 8]{Slavik2022}.)
-\end{exercise}
+\end{task}
 \begin{solution}
     Aby výsledné číslo bylo sudé, musí končit (tj. mít na čtvrté pozici) číslici 0, 2, nebo 4. Zde již však nastává problém, neboť nemůžeme hned aplikovat pravidlo součinu. Je tomu tak proto, že pokud by byla na čtvrté pozici nula, pak na první pozici máme 5 možností, zatímco pokud by zde byla číslice 2, nebo 4, pak počet přípustných číslic na první pozici je již pouze 4 (nesmíme vybrat číslici 0 a pak číslici na čtvrté pozici). Počet výběrů tak již není nezávislý. Nicméně můžeme každý z případů vyšetřit zvlášť:
     \begin{itemize}
