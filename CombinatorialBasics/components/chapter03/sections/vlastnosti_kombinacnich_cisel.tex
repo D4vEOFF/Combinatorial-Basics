@@ -14,9 +14,30 @@ U kombinačních čísel lze pozorovat některé zajímavé vlastnosti. Začneme
 \end{theorem}
 \begin{proof}[Důkaz první]
     Asi nejjednodušší důkaz je přímým výpočtem:
-    \[\binom{n}{n-k}=\dfrac{n!}{(n-(n-k))(n-k)!}=\dfrac{n!}{k!(n-k)!}=\binom{n}{k}.\]
+    \[\binom{n}{n-k}=\dfrac{n!}{(n-(n-k))!(n-k)!}=\dfrac{n!}{k!(n-k)!}=\binom{n}{k}.\]
 \end{proof}
 \begin{proof}[Důkaz druhý]
-    Názornější důkaz nám poskytne kombinatorická interpretace tohoto tvrzení. Libovolná $k$-tice (v tomto smyslu množina) je jednoznačně určena výběrem prvků z nějaké $n$ prvkové množiny, které jí budou náležet. Výběrem $k$ prvků z dané množiny tak zbude $n-k$ prvků, které nejsou součástí dané $k$-tice.
-    \todo{obrázek}
+    Názornější důkaz nám poskytne kombinatorická interpretace tohoto tvrzení. Libovolná $k$-tice (v tomto smyslu množina) je \textbf{jednoznačně určena} výběrem prvků z nějaké $n$ prvkové množiny, které jí budou náležet. Výběrem $k$ prvků z dané množiny tak zbude $n-k$ prvků, které nejsou součástí dané $k$-tice.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=\normalipe]{ch03_podmnoziny.pdf}
+        \caption{Výběr šesti prvků z patnácti.}
+        \label{fig:podmnoziny}
+    \end{figure}
+    Takových možných výběrů existuje $\binom{n}{k}$. Danou $k$-tici ovšem lze vybrat i opačným způsobem, a to sice volbou prvků, které jí náležet \textbf{nebudou}. Tedy výběrem $n-k$ prvků zbude celkem $k$ prvků, které jí budou náležet. Takových výběrů existuje $\binom{n}{n-k}$. Protože výběrem $n-k$ prvků vždy jednoznačně určíme nějakou $k$-tici, pak neuspořádaných $k$-tic a neuspořádaných $(n-k)$-tic musí být stejně, tj.
+    \[\binom{n}{k}=\binom{n}{n-k}.\]
+\end{proof}
+
+\begin{theorem}
+    Pro $n,\,k\in\N_0$ platí
+    \[\binom{n}{k}+\binom{n}{k+1}=\binom{n+1}{k+1}.\]
+\end{theorem}
+\begin{proof}[Důkaz první]
+    Obdobně i zde lze tvrzení dokázat přímým výpočtem:
+    \begin{align*}
+        \binom{n}{k}+\binom{n}{k+1}&=\dfrac{n(n-1)\cdots(n-k+1)}{k!}+\dfrac{n(n-1)\cdots(n-k+1)(n-k)}{(k+1)!}\\ &=\dfrac{n(n-1)\cdots(n-k+1)}{k!}\cdot\left(1+\dfrac{n-k}{k+1}\right)\\ &=\dfrac{n(n-1)\cdots(n-k+1)}{k!}\cdot\dfrac{n+1}{k+1}\\ &=\dfrac{(n+1)n(n-1)\cdots(n-k+1)}{(k+1)!}=\binom{n+1}{k+1}.
+    \end{align*}
+\end{proof}
+\begin{proof}[Důkaz druhý]
+    
 \end{proof}
