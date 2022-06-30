@@ -8,7 +8,7 @@ dává výraz smysl i pro $k>n$ a je vždy roven nule (ostatně i z kombinatoric
 \medskip
 
 U kombinačních čísel lze pozorovat některé zajímavé vlastnosti. Začneme asi tou nejzákladnější.
-\begin{theorem}[Symetrie kombinačních čísel]
+\begin{theorem}[Symetrie kombinačních čísel]\label{thm:symetrie_kombinacnich_cisel}
     Pro $n,\,k\in\N_0$, kde $k\leqslant n$, platí
     \[\binom{n}{k}=\binom{n}{n-k}.\]
 \end{theorem}
@@ -28,7 +28,7 @@ U kombinačních čísel lze pozorovat některé zajímavé vlastnosti. Začneme
     \[\binom{n}{k}=\binom{n}{n-k}.\]
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{thm:soucet_kombinacnich_cisel}
     Pro $n,\,k\in\N_0$ platí
     \[\binom{n}{k}+\binom{n}{k+1}=\binom{n+1}{k+1}.\]
 \end{theorem}
@@ -39,5 +39,15 @@ U kombinačních čísel lze pozorovat některé zajímavé vlastnosti. Začneme
     \end{align*}
 \end{proof}
 \begin{proof}[Důkaz druhý]
-    
+    Opět o něco názorněji lze platnost tvrzení zdůvodnit kombinatorickou úvahou. Představme si, že máme množinu
+    \[\set{1,\,2,\,\dots,\,n,\,n+1}.\]
+    Chceme vybrat spočítat počet možných výběrů všech neuspořádaných $(k+1)$-tic, pak jejich počet odpovídá kombinačnímu číslu $\binom{n+1}{k+1}$. To je význam pravé strany rovnosti.\par
+    Chceme-li vybrat všechny neuspořádané $(k+1)$-tice, lze postupovat i následovně:
+    \begin{itemize}
+        \item vybereme všechny $(k+1)-tice$, které \textbf{obsahují prvek $n+1$} a
+        \item vybereme všechny $(k+1)$-tice, které \textbf{neobsahují prvek $n+1$}.
+    \end{itemize}
+    Je nejspíše intuitivně jasné, že neuspořádané $(k+1)$-tice z obou skupin dají celkově všechny $(k+1)$-tice (každá z nich buď daný prvek obsahuje, nebo jej neobsahuje). V prvním případě máme jeden prvek již vybraný, a to $n+1$. Zbylých $k$ prvků lze vybrat $\binom{n}{k}$ způsoby.\par
+    V druhém případě vybíráme $k+1$ prvků, avšak pouze z $n$ prvků (prvek $n+1$ neuvažujeme). Takových výběrů existuje $\binom{n}{k+1}$. Protože obě "skupiny" neuspořádaných $(k+1)$-tic jsou disjunktní, je tak celkový všech $k+1$-tic z $n+1$ prvků roven
+    \[\binom{n}{k}+\binom{n}{k+1}.\]
 \end{proof}

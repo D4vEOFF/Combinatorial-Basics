@@ -18,4 +18,5 @@ compile-no-bibtex:
 	${TEXCOMPILER} combinatorics.tex
 
 clean:
-	del *.log *.dvi *.aux *.toc *.lof *.lot *.out *.bbl *.blg *.xmpi *.synctex.gz /f /s
+	# del *.log *.dvi *.aux *.toc *.lof *.lot *.out *.bbl *.blg *.xmpi *.synctex.gz /f /s
+	rm -Rf *.log *.dvi *.aux *.toc *.lof *.lot *.out *.bbl *.blg *.xmpi *.synctex.gz
