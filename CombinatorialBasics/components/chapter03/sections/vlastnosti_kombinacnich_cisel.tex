@@ -51,3 +51,12 @@ U kombinačních čísel lze pozorovat některé zajímavé vlastnosti. Začneme
     V druhém případě vybíráme $k+1$ prvků, avšak pouze z $n$ prvků (prvek $n+1$ neuvažujeme). Takových výběrů existuje $\binom{n}{k+1}$. Protože obě "skupiny" neuspořádaných $(k+1)$-tic jsou disjunktní, je tak celkový všech $k+1$-tic z $n+1$ prvků roven
     \[\binom{n}{k}+\binom{n}{k+1}.\]
 \end{proof}
+\begin{task}
+    Vyjádřete výraz
+    \[\binom{11}{7}+\binom{11}{5}\]
+    jedním kombinačním číslem.
+\end{task}
+\begin{solution}
+    K úpravě výrazu se nám budou hodit věty \ref{thm:symetrie_kombinacnich_cisel} a \ref{thm:soucet_kombinacnich_cisel} výše. Rádi bychom dostali oba členy do tvaru $\binom{n}{k-1}+\binom{n}{k}$, abychom je mohli sečíst. Nejdříve proto využijeme větu \ref{thm:symetrie_kombinacnich_cisel}.
+    \[\binom{11}{7}+\binom{11}{5}\stackrel{\ref{thm:symetrie_kombinacnich_cisel}}{=}\binom{11}{11-7}+\binom{11}{5}=\binom{11}{4}+\binom{11}{5}\stackrel{\ref{thm:soucet_kombinacnich_cisel}}{=}\binom{12}{5}.\]
+\end{solution}
