@@ -1,0 +1,44 @@
+\section{Co je to pravděpodobnost?}
+
+\textbf{Pravděpodobnost} (někdy též \emph{šance}) je jeden z pojmů, který vystupuje nejen v matematice, ale i v reálném životě. Když si hodíme mincí, asi je nám jasné, že je stejná šance, že nám padne rub nebo líc. Naopak třeba u hodu klasicky hrací kostkou máme šanci $1:6$, že nám padne jednička a šance tak již není vyrovnaná situaci, že nám nepadne. Intuitivně tak asi tušíme, co se myslí, když se řekne, že např. šance výhry je 75 \%. Co však ale reprezentuje ono číslo? Definovat, co je to "skutečná" pravděpodobnost je obtížné a jedná se spíše o záležitost filozofickou. V matematice se však tomuto problému dokážeme vyhnout.\par
+Jako lidé chápeme, že šance výhry 70 \% je v jistém smyslu "lepší" než např. 30 \%, ale proč tomu tak je? Pro příklad si vezměme již zmíněnou klasickou hrací kostku. Pro simulaci hodů využijeme jednoduchý program v jazyce Python:
+\VerbatimInput{components/chapter04/sections/dice.py}
+
+Níže je tabulka četností výskytů a jejich poměru vůči celkovému počtu jednotlivých ok po miliónu pokusů.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    Počet ok & Četnost & Výskyt (\%)     \\ \hline
+    1     & 166 896 & $16{,}6896$ \\
+    2     & 166 789 & $16{,}6789$ \\
+    3     & 166 508 & $16{,}6508$ \\
+    4     & 166 863 & $16{,}6863$ \\
+    5     & 166 151 & $16{,}6150$ \\
+    6     & 166 794 & $16{,}6794$ \\ \hline
+    \end{tabular}
+    \caption {Četnost hodů čísel na hrací kostce po miliónu pokusech.}
+\end{table}
+Víme, že šance pro všechny strany je stejná - $1:6$, což odpovídá hodnotě numerické hodnotě $0{,}1\overline{6}$, neboli $16{,}\overline{6}$. Celkově tak můžeme vidět, že procentuální výskyt se jen málo liší od našeho očekávání. Tímto způsobem můžeme vnímat pravděpodobnost. Jako číslo ke kterému se blíží \textbf{poměr počtu příznivých pokusů a počtu všech pokusů}.\par
+Praktický výpočet pravděpodobnosti však probíhá trochu jinak. U kostky jsme určili pravděpodobnost hodu jedničky tak, že jsme vzali \textbf{počet příznivých hodů} ku \textbf{počtu všech možných hodů}. A v tomto duchu také definujeme pravděpodobnost.\par
+\begin{definition}[Elementární a náhodný jev, pravděpodobnost]\label{def:elementarni_nahodny_jev_pravdepodobnost}
+    Mějme množinu $\Omega=\set{\omega_1,\,\omega_2,\,\dots,\,\omega_n}$. Pak
+    \begin{itemize}
+        \item $\Omega$ nazýváme \textbf{množinou elementárních jevů} a libovolný její prvek $\omega_i$ \textbf{elementárním jevem}.
+        \item libovolnou podmnožinu $A\subseteq\Omega$ nazýváme \textbf{(náhodný) jev}.
+    \end{itemize}
+    Dále definujeme funkci $\Prob$ přiřazující libovolnému jevu $A\subseteq\Omega$ reálné číslo z intervalu $\langle0,\,1\rangle$ splňující
+    \begin{enumerate}[label=(\roman*)]
+        \item $\Prob(\emptyset)=0$,
+        \item $\Prob(\Omega)=1$,
+        \item $\Prob(A\cup B)=\Prob(A)+\Prob(B)$,
+    \end{enumerate}
+    kde $A,\,B\subseteq\Omega$ jsou disjunktní jevy. Číslo $\Prob(A)$ nazýváme \textbf{pravděpodobností jevu $A$}.
+\end{definition}
+\begin{example}
+    V případě hodu kostkou tvoří množinu elementárních jevů $\Omega$ případy, kdy 1 až 6 ok. Označíme-li si jednotlivé počty ok $O_1,\,\dots,\,O_6$, pak $\Omega=\set{O_1,\,\dots,\,O_6}$. Všechny elementární jevy jsou zde stejně pravděpodobné, tedy pro libovolné $i\in\set{1,\,2,\,\dots,\,6}$ platí
+    \[\Prob(O_i)=\dfrac{1}{6}.\]
+    Vezmeme-li jev $L$, který nastane právě tehdy, když padne lichý počet ok, pak $L=\set{O_1,\,O_3,\,O_5}$ (všechny elementární jevy jsou \textbf{vždy} považovány za vzájemně po dvou disjunktní). Pravděpodobnost jevu $L$ je podle bodu \textit{(iii)} v definici \ref{def:elementarni_nahodny_jev_pravdepodobnost} rovna
+    \[\Prob(L)=\Prob(O_1)+\Prob(O_3)+\Prob(O_5)=\dfrac{1}{6}+\dfrac{1}{6}+\dfrac{1}{6}=\dfrac{1}{2}=50\,\%,\]
+    což souhlasí s naším očekáváním.
+\end{example}
