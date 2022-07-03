@@ -17,7 +17,7 @@ Níže je tabulka četností výskytů a jejich poměru vůči celkovému počtu
     5     & 166 151 & $16{,}6150$ \\
     6     & 166 794 & $16{,}6794$ \\ \hline
     \end{tabular}
-    \caption {Četnost hodů čísel na hrací kostce po miliónu pokusech.}
+    \caption {Četnost hodů ok na hrací kostce po miliónu pokusech.}
 \end{table}
 Víme, že šance pro všechny strany je stejná - $1:6$, což odpovídá hodnotě numerické hodnotě $0{,}1\overline{6}$, neboli $16{,}\overline{6}$. Celkově tak můžeme vidět, že procentuální výskyt se jen málo liší od našeho očekávání. Tímto způsobem můžeme vnímat pravděpodobnost. Jako číslo ke kterému se blíží \textbf{poměr počtu příznivých pokusů a počtu všech pokusů}.\par
 Praktický výpočet pravděpodobnosti však probíhá trochu jinak. U kostky jsme určili pravděpodobnost hodu jedničky tak, že jsme vzali \textbf{počet příznivých hodů} ku \textbf{počtu všech možných hodů}. A v tomto duchu také definujeme pravděpodobnost.\par
@@ -35,6 +35,10 @@ Praktický výpočet pravděpodobnosti však probíhá trochu jinak. U kostky js
     \end{enumerate}
     kde $A,\,B\subseteq\Omega$ jsou disjunktní jevy. Číslo $\Prob(A)$ nazýváme \textbf{pravděpodobností jevu $A$}.
 \end{definition}
+Poslední vztah lze zobecnit pro obecný počet disjunktních jevů $A_1,\,A_2,\,\dots,\,A_n$, tj.
+\[\Prob\left(\bigcup\limits_{i=1}^{n}A_i\right)=\sum_{i=1}^{n}\Prob(A_i).\]
+Ve všech příkladech dále budeme pracovat s variantou, že všechny elementární jevy jsou stejně pravděpodobné. To má tedy za následek způsob výpočtu, který jsme zmínili výše, tedy je-li $A\subseteq\Omega$ libovolný jev, pak pravděpodobnost jevu $A$ stanovíme jako
+\[\Prob(A)=\dfrac{\sizeof{A}}{\sizeof{\Omega}}.\]
 \begin{example}
     V případě hodu kostkou tvoří množinu elementárních jevů $\Omega$ případy, kdy 1 až 6 ok. Označíme-li si jednotlivé počty ok $O_1,\,\dots,\,O_6$, pak $\Omega=\set{O_1,\,\dots,\,O_6}$. Všechny elementární jevy jsou zde stejně pravděpodobné, tedy pro libovolné $i\in\set{1,\,2,\,\dots,\,6}$ platí
     \[\Prob(O_i)=\dfrac{1}{6}.\]
@@ -42,3 +46,35 @@ Praktický výpočet pravděpodobnosti však probíhá trochu jinak. U kostky js
     \[\Prob(L)=\Prob(O_1)+\Prob(O_3)+\Prob(O_5)=\dfrac{1}{6}+\dfrac{1}{6}+\dfrac{1}{6}=\dfrac{1}{2}=50\,\%,\]
     což souhlasí s naším očekáváním.
 \end{example}
+\begin{task}
+    Z osmnácti lístků označených čísly 1 - 18 vytáhneme náhodně jeden lístek. Jaká je pravděpodobnost, že na vytažením lístku bude:
+    \begin{enumerate}[label=(\alph*)]
+        \item sudé číslo
+        \item číslo dělitelné 3
+        \item prvočíslo
+        \item dělitelné 6
+    \end{enumerate}
+    \citep[sekce \emph{Pravděpodobnost a statistika}]{prikladyeu2022}
+\end{task}
+\begin{solution}
+    Zde představuje množinu elementárních jevů, že si vytáhneme jeden lístek z osmnácti, tj. $\Omega=\set{L_1,\,L_2,\,\dots,\,L_{18}}$, kde $L_i$ je jev, kdy jsme si vytáhli lístek s číslem $i$ (všechny tahy jsou stejně pravděpodobné). Vyřešíme po řadě jednotlivé pravděpodobnosti.\par
+    \begin{enumerate}[label=(\alph*)]
+        \item Jev $A$ bude představovat situaci, kdy jsme si vytáhli sudé číslo, tzn. $A=\set{L_2,\,L_4,\,\dots,\,L_{18}}$. Počet příznivých jevů je tak
+        \[\sizeof{A}=\dfrac{18}{2}=9.\]
+        Počet všech možných jevů je $\sizeof{\Omega}=18$. Tedy
+        \[\Prob(A)=\dfrac{\sizeof{A}}{\sizeof{\Omega}}=\dfrac{9}{18}=\dfrac{1}{2}=50\,\%.\]
+        \item Počet čísel dělitelných třemi z množiny $\set{1,\,2,\,\dots,\,18}$ je $18/3=6$, tedy označíme-li si tento jev $B$, pak $\sizeof{B}=6$. Tzn.
+        \[\Prob(B)=\dfrac{\sizeof{B}}{\sizeof{\Omega}}=\dfrac{6}{18}=\dfrac{1}{3}=33{,}\overline{3}\,\%.\]
+        \item Z množiny $\set{1,\,2,\,\dots,\,18}$ jsou prvočísla $2,\,3,\,5,\,7,\,11,\,13$ a $17$, tj. pro příslušný jev $C$ platí $\sizeof{C}=7$. Tzn.
+        \[\Prob(C)=\dfrac{\sizeof{C}}{\sizeof{\Omega}}=\dfrac{7}{18}=38{,}\overline{8}\,\%.\]
+        \item Počet čísel dělitelných šesti je přesně 3 (jsou jimi 6, 12 a 18), tj. $\sizeof{D}=3$ a tedy
+        \[\Prob(D)=\dfrac{\sizeof{D}}{\sizeof{\Omega}}=\dfrac{3}{18}=\dfrac{1}{6}=16{,}\overline{6}\,\%.\]
+    \end{enumerate}
+\end{solution}
+\begin{task}
+    Jaká je pravděpodobnost že při hodu dvěma kostkami (červené a modré) padne součet 8? \citep[sekce \emph{Pravděpodobnost a statistika}]{prikladyeu2022}
+\end{task}
+\begin{solution}
+    Zde je třeba se trochu promyslet, co považovat za elementární jev. Pokud hodíme dvěma kostkami, obdržíme dvojici hodnot $(i,\,j)$, kde na modré kostce padlo číslo $i$ a na červené kostce číslo $j$. Tedy množina elementárních jevů množina všech takových dvojic, tj. $\Omega=\set{(i,\,j) \admid 1 \leqslant i,\,j \leqslant 6}$. Dvojice, u nichž je součet ok na obou kostkách roven osmi, jsou $(2,\,6),\,(3,\,5),\,(4,\,4),\,(5,\,3),\,(6,\,2)$ a tedy $A=\set{(2,\,6),\,(3,\,5),\,(4,\,4),\,(5,\,3),\,(6,\,2)}$. Tedy takových dvojic je celkem 5. Výsledná pravděpodobnost je
+    \[\Prob(A)=\dfrac{\sizeof{A}}{\sizeof{\Omega}}=\dfrac{5}{6^2}=\dfrac{5}{36}=13{,}\overline{8}\,\%.\]
+\end{solution}
