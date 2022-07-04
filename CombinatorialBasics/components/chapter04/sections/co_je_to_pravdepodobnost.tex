@@ -78,3 +78,44 @@ Ve všech příkladech dále budeme pracovat s variantou, že všechny elementá
     Zde je třeba se trochu promyslet, co považovat za elementární jev. Pokud hodíme dvěma kostkami, obdržíme dvojici hodnot $(i,\,j)$, kde na modré kostce padlo číslo $i$ a na červené kostce číslo $j$. Tedy množina elementárních jevů množina všech takových dvojic, tj. $\Omega=\set{(i,\,j) \admid 1 \leqslant i,\,j \leqslant 6}$. Dvojice, u nichž je součet ok na obou kostkách roven osmi, jsou $(2,\,6),\,(3,\,5),\,(4,\,4),\,(5,\,3),\,(6,\,2)$ a tedy $A=\set{(2,\,6),\,(3,\,5),\,(4,\,4),\,(5,\,3),\,(6,\,2)}$. Tedy takových dvojic je celkem 5. Výsledná pravděpodobnost je
     \[\Prob(A)=\dfrac{\sizeof{A}}{\sizeof{\Omega}}=\dfrac{5}{6^2}=\dfrac{5}{36}=13{,}\overline{8}\,\%.\]
 \end{solution}
+\begin{remark}
+    Někdy nepotřebujeme nutně vypočítat přímo pravděpodobnost, že nastane jev $A$, ale že naopak nenastane. To znamená, že nastane kterýkoliv z elementárních jevů, které nenáleží jevu $A$. Tomu odpovídá doplněk množiny $A$ do množiny $\Omega$, tj. $A^\complement$. Takovému jevu říkáme \textbf{jev opačný k $A$} a platí
+    \[\Prob\left(A^\complement\right)=1-\Prob(A).\]
+\end{remark}
+\begin{task}
+    V sáčku je 10 skleněnek a 20 hliněnek. Náhodně vybereme 7 kuliček. Jaká je pravděpodobnost, že ve výběru se vyskytne \textbf{alespoň jedna skleněnka}?
+\end{task}
+\begin{solution}[Řešení první]
+    Vybíráme neuspořádané sedmice z celkově třiceti kuliček. Takových výběrů existuje $\sizeof{\Omega}=\binom{30}{7}$ Zkusíme přímo spočítat všechny možnosti. Nejdříve vybereme skleněnky a počet doplníme hliněnkami do sedmi. Jevy $K_1,\,K_2,\,\dots,\,K_7$, kde $K_i$ jsou výběry s právě $i$ skleněnkami, jsou jistě disjunktní. Tedy stačí sečíst všechny možnosti takových výběrů skleněnek a následně výběr doplnit všemi $(7-i)$-ticemi hliněnek. Tedy
+    \[\sizeof{\bigcup\limits_{i=1}^{7}K_i}=\sum_{i=1}^{7}\binom{10}{i}\binom{20}{7-i}\]
+    Zaměříme-li se na sumu na pravé straně, lze si všimnout, že můžeme aplikovat Vandermondovu identitu \ref{thm:vandermondova_identita}, kde $n=10$, $m=20$ a $r=7$. Musíme si však dát pozor, neboť v původním znění věty bereme index $k$ od nuly. Tedy zde nám chybí člen $\binom{10}{0}\binom{20}{7}$ (pro $i=0$).
+    \begin{align*}
+        \sum_{i=1}^{7}\binom{10}{i}\binom{20}{7-i}&=\sum_{i=1}^{7}\binom{10}{i}\binom{20}{7-i}+\binom{10}{0}\binom{20}{7}-\binom{10}{0}\binom{20}{7}\\
+        &\stackrel{\ref{thm:vandermondova_identita}}{=}\binom{10+20}{7}-\binom{10}{0}\binom{20}{7}=\binom{30}{7}-\binom{20}{7}.
+    \end{align*}
+    Tedy výsledná pravděpodobnost je
+    \[\Prob\left(\bigcup\limits_{i=1}^{7}K_i\right)=\dfrac{1}{\sizeof{\Omega}}\cdot\sizeof{\bigcup\limits_{i=1}^{7}K_i}=\dfrac{\binom{30}{7}-\binom{20}{7}}{\binom{30}{7}}\approx 0{,}962=96{,}2\,\%.\]
+\end{solution}
+Výpočet je jistě správný, nicméně existuje lehčí způsob, jak dojít ke stejnému výsledku pomocí uvážení opačného jevu.
+\begin{solution}[Řešení druhé]
+    V původním řešení jsme museli přímo spočítat počet všech možných výběrů postupně s jednou, dvěma, třemi atd. až sedmi skleněnkami. Avšak existuje jednoduší postup. Zkusíme naopak vypočítat pravděpodobnost, že výběr sedmi kuliček nebude obsahovat žádnou skleněnku. To odpovídá jednoduše výběru sedmice hliněnek a tedy jich existuje $\binom{20}{7}$. Pokud si tento jev označíme $K_0$, pak jeho pravděpodobnost
+    \[\Prob(K_0)=\dfrac{\sizeof{K_0}}{\sizeof{\Omega}}=\dfrac{\binom{20}{7}}{\binom{30}{7}}\approx 0{,}038=3{,}8\,\%.\]
+    Protože $K_0$ je opačný k jevu $\bigcup_{i=1}^{7}K_i$, pak
+    \[\Prob\left(\bigcup\limits_{i=1}^{7}K_i\right)=1-\Prob(K_0)=1-0{,}038=0{,}962=96{,}2\,\%.\]
+\end{solution}
+\begin{task}
+    Heslo se skládá z 10 symbolů latinské abecedy, tzn.
+    \begin{itemize}
+        \item 26 velkých písmen,
+        \item 26 malých písmen a
+        \item 10 číslic,
+    \end{itemize}
+    přičemž žádná z číslic se neopakuje. Jaká je pravděpodobnost, že při náhodném vygenerování bude heslo obsahovat alespoň jednu číslici? (Úloha s řešením převzata z \cite{Tiser2022}.)
+\end{task}
+\begin{solution}
+    Obdobně i zde bychom tuto úlohu mohli řešit dvěma způsoby, nicméně pokud porovnáme vstupní hodnoty s předešlou úlohou, nejspíše bychom došli k závěru, že varianta řešení pomocí přímého spočítání jednotlivých hesel, by zde byla o dost náročnější. Proto zvolíme opět opačný postup, tedy spočítáme všechna hesla, která neobsahují \textbf{žádnou číslici}. Jev, kdy bylo vygenerováno heslo s alespoň jednou číslicí, si označíme $N$, tzn. hledáme $N^\complement$. Takových hesel existuje $\sizeof{N^\complement}=\binom{52}{10}$. Celkový počet možný hesel je $\sizeof{\Omega}=\binom{62}{10}$.\par
+    Pravděpodobnost jevu opačnému k $N$ je tak
+    \[\Prob\left(N^\complement\right)=\dfrac{\sizeof{N}}{\sizeof{\Omega}}=\dfrac{\binom{52}{10}}{\binom{62}{10}}\approx 0{,}147=14{,}7\,\%\]
+    a hledaná pravděpodobnost jevu $N$ je tedy
+    \[\Prob(N)=1-\Prob\left(N^\complement\right)=1-0{,}147=0{,}853=85{,}3\,\%.\]
+\end{solution}

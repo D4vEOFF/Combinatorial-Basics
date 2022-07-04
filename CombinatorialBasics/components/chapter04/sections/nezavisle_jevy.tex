@@ -41,25 +41,22 @@ Velikost průniku $A\cap B$ lze určit následující úvahou. Pokud elementárn
 \[\varphi_1,\,\varphi_2,\,\dots,\,\varphi_m,\]
 pak $\sizeof{A}=mn$. Analogicky pro obsahující uspořádané dvojice, kde na druhé souřadnici jsou elementární jevy
 \[\psi_1,\,\psi_2,\,\dots,\,\psi_k,\]
-pak $\sizeof{B}=kn$. Tedy pravděpodobnost, že nastane jev $A$, je tak
+je $\sizeof{B}=kn$. Tedy pravděpodobnost, že nastane jev $A$, je tak
 \[\Prob(A)=\dfrac{\sizeof{A}}{\sizeof{\Omega}}=\dfrac{mn}{n^2}=\dfrac{m}{n}\]
 a analogicky pro $B$ je pravděpodobnost
 \[\Prob(B)=\dfrac{\sizeof{B}}{\sizeof{\Omega}}=\dfrac{kn}{n^2}=\dfrac{k}{n}.\]
-Pravděpodobnosti těchto jevů tedy vyjadřují podíl daných jevů vůči všem možnostem.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=\normalipe]{ch04_dvojice_podil.pdf}
     \caption{Znázornění jevů $A$ a $B$ v množině $\Omega^\prime$.}
     \label{fig:dvojice_podil}
 \end{figure}
-Z obrázku si však můžeme uvědomit, že podíl počtu elementární jevů $A$ a všech elementárních jevů musí být stejný jako podíl počtu elementárních jevů jevu $A\cap B$ a počtu elementárních jevů jevu $B$. To znamená, že platí
-\[\dfrac{\sizeof{A}}{\sizeof{\Omega^\prime}}=\dfrac{\sizeof{A\cap B}}{\sizeof{B}}.\]
-Z této rovnosti již dokážeme vyjádřit $\sizeof{A\cap B}$, tj.
-\[\sizeof{A\cap B}=\dfrac{\sizeof{A}}{\sizeof{\Omega^\prime}}\cdot\sizeof{B}=\dfrac{m}{n^2}\cdot k\]
-a z toho dostáváme
-\[\Prob(A\cap B)=\dfrac{\sizeof{A\cap B}}{\sizeof{\Omega^\prime}}=\dfrac{\dfrac{m}{n^2}\cdot k}{n^2}=\dfrac{m}{n^2}\cdot\dfrac{k}{n^2}=\Prob(A)\cdot\Prob(B).\]
+Nakonec velikost průniku jevů $A$ a $B$ je $mk$ (viz obrázek \ref{fig:dvojice_podil}). Nyní již můžeme určit pravděpodobnost jevu $A\cap B$, tedy
+\[\Prob(A\cap B)=\dfrac{\sizeof{A\cap B}}{\sizeof{\Omega^\prime}}=\dfrac{mk}{n^2}=\dfrac{m}{n}\cdot\dfrac{k}{n}=\Prob(A)\cdot\Prob(B).\]
+Tedy jevy $A$ a $B$ jsou skutečně nezávislé. Při obecnější úvaze bychom mohli uvažovat jevy $A$ a $B$ jako podmnožiny dvou různých množin elementárních jevů a došli bychom ke stejnému výsledku. (Zkuste si rozmyslet.)
 \medskip
 
+Nyní se podíváme na několik dalších příkladů využití nezávislosti jevů. Aktuálně jsme si již vysvětlili formální pozadí teorie pravděpodobnosti a to především, abychom jsme si vybudovali určitý způsob chápání náhody v řeči matematiky. Zatím jsme tak v rámci formalizace při řešení různých úloh kromě samotného výpočtu řešili také určení množiny elementárních jevů, abychom naši jinak abstraktní definici ukázali v aplikaci na konkrétních příkladech. Nicméně pokud se podíváte na úlohy v různých sbírkách (hlavně na internetu) na pravděpodobnost, jen málokde byste v jejich řešení našly tyto kroky a zejména z důvodu, že tyto záležitosti jsou považovány za intuitivní. Abychom se vyhnuli zdlouhavým řešením a jejich zápisům, budeme řešení provádět od teď o něco stručněji.
 \begin{task}
     Ve městě jsou čtyři křižovatky se světelnými semafory. Každý z nich uvolňuje nebo uzavírá dopravu se stejnou pravděpodobností $0{,}5$. Jaká je pravděpodobnost, že auto:
     \begin{enumerate}[label=(\alph*)]
@@ -75,4 +72,45 @@ a z toho dostáváme
         \item $\displaystyle \Prob(K_1\cap K_2)=0{,}5\cdot 0{,}5=0{,}25=25\,\%$,
         \item $\displaystyle \Prob(K_1\cap K_2\cap K_3)=0{,}5\cdot 0{,}5\cdot 0{,}5=0{,}125=12{,}5\,\%.$
     \end{enumerate}
+\end{solution}
+\begin{task}
+    Máme falešnou kostku, kde čísla padají s pravděpodobnostmi.
+    \begin{itemize}
+        \item $\Prob(\set{1})=0{,}1$;
+        \item $\Prob(\set{2})=0{,}2$;
+        \item $\Prob(\set{3})=0{,}22$;
+        \item $\Prob(\set{4})=0{,}16$;
+        \item $\Prob(\set{5})=0{,}24$;
+        \item $\Prob(\set{6})=0{,}08$.
+    \end{itemize}
+    Určete pravděpodobnost, že při dvou hodech padnou stejná čísla. \citep[příklad \textit{Falešná kostka
+    }]{hackmath2022}
+\end{task}
+\begin{solution}
+    Každý hod kostkou tvoří nezávislý jev, tedy pravděpodobnost, že dvakrát za sebou padne stejné číslo $i$ (označme $D_i$) je rovna
+    \[\Prob(D_i)=\Prob(\set{i})\cdot\Prob(\set{i})=\Prob(\set{i})^2.\]
+    Pro všechna různá $i,\,j$ jsou však jevy $D_i$ a $D_j$ disjunktní (nemůže nám padnout dvakrát za sebou číslo $i$ a zároveň dvakrát za sebou číslo $j$). Tedy výsledná pravděpodobnost je
+    \begin{align*}
+        \Prob\left(\bigcup\limits_{i=1}^{6}D_i\right)&=\sum_{i=1}^{6}\Prob(D_i)=\sum_{i=1}^{6}\Prob(\set{i})^2\\
+        &=0{,}1^2+0{,}2^2+0{,}22^2+0{,}16^2+0{,}24^2+0{,}08^2=0{,}188=18{,}8\,\%.
+    \end{align*}
+\end{solution}
+\begin{task}
+    \textit{Kolikrát musíme hodit mincí, aby pravděpodobnost, že padne alespoň jednou líc byla větší než $0{,}999$?} \citep[str. 171]{Petakova2020}
+\end{task}
+\begin{solution}
+    Máme spravedlivou minci, tedy pravděpodobnost, že padne líc je $1/2$. Zkusíme úlohu vyřešit opačným způsobem, tedy vypočítáme pravděpodobnost obecně pro $n$ pokusů, že nepadl ani jednou líc (což je jev opačný k jevu, který máme vyšetřit). To znamená, že řešíme pravděpodobnost jevu, že $n$-krát po sobě padl rub. Označme si jev, kdy po $n$ pokusech padl alespoň jednou líc, jako $L$. Tzn. jev, kdy padne $n$-krát po sobě rub, je $L^\complement$. Pravděpodobnost jevu $L^\complement$ je tak
+    \[\Prob\left(L^\complement\right)=\left(\dfrac{1}{2}\right)^n.\]
+    Tedy pravděpodobnost jevu $L$ je
+    \[\Prob(L)=1-\left(\dfrac{1}{2}\right)^n,\]
+    přičemž nás zajímá, pro jaké $n$ tato pravděpodobnost přesáhne hodnotu $0{,}999$. Tedy řešíme nerovnici
+    \begin{align*}
+        1-\left(\dfrac{1}{2}\right)^n&\geqslant 0{,}999\\
+        0{,}001&\geqslant\left(\dfrac{1}{2}\right)^n\\
+        \dfrac{1}{1000}&\geqslant\dfrac{1}{2^n}\\
+        2^n&\geqslant 1000\\
+        n&\geqslant\log_2{1000}\approx 9{,}966\\
+        n&\geqslant 10.
+    \end{align*}
+    Tedy pro $n\geqslant 10$ pravděpodobnost, že padne alespoň jednou líc, přesáhne hodnotu $0{,}999$.
 \end{solution}

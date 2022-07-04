@@ -93,10 +93,10 @@ Pojďme se nyní podívat na některé další kombinatorické identity.
     Ve firmě pracuje celkem 100 zaměstnanců. Kolika způsoby lze vybrat skupinu zaměstnanců, kteří budou pracovat na technickém oddělení a jednoho z nich zvolit jako vedoucího?
 \end{task}
 \begin{solution}
-    Protože nemáme pevně zadané množství zaměstnanců, kteří budou na oddělení pracovat, pak uvažujeme skupiny všech možných velikostí. Nejdříve vybereme vedoucího a následně k němu přidáme skupinu ze zbývajících $n-1$ zaměstnanců. Vedoucího můžeme vybrat celkem $n$ způsoby. Ze zbylých $n-1$ zaměstnanců lze utvořit skupinu celkem $\sum_{k=0}^{n-1}\binom{n-1}{k}$ způsoby, což je podle předchozí věty \ref{thm:vsechny_podmnoziny} rovno $2^{n-1}$. Celkově lze tedy vybrat skupinu zaměstnanců na dané oddělení $n\cdot m2^{n-1}$ způsoby.
+    Protože nemáme pevně zadané množství zaměstnanců, kteří budou na oddělení pracovat, pak uvažujeme skupiny všech možných velikostí. Nejdříve vybereme vedoucího a následně k němu přidáme skupinu ze zbývajících $n-1$ zaměstnanců. Vedoucího můžeme vybrat celkem $n$ způsoby. Ze zbylých $n-1$ zaměstnanců lze utvořit skupinu celkem $\sum_{k=0}^{n-1}\binom{n-1}{k}$ způsoby, což je podle předchozí věty \ref{thm:vsechny_podmnoziny} rovno $2^{n-1}$. Celkově lze tedy vybrat skupinu zaměstnanců na dané oddělení $n\cdot 2^{n-1}$ způsoby.
 \end{solution}
 \begin{theorem}
-    Počet neuspořádaných výběrů se sudým počtem prvků je stejný jako počet neuspořádaných výběrů s lichým počtem prvků.
+    Počet neuspořádaných výběrů z $n$-prvkové množiny se sudým počtem prvků je stejný jako počet neuspořádaných výběrů z $n$-prvkové množiny s lichým počtem prvků.
 \end{theorem}
 \begin{proof}[Důkaz první]
     K důkazu lze opět využít binomickou větu. Začneme tím, že si trochu netradičně zapíšeme nulu:
@@ -104,17 +104,26 @@ Pojďme se nyní podívat na některé další kombinatorické identity.
     což je podle binomické věty rovno
     \[\sum_{k=0}^{n}\binom{n}{k}1^{n-k}(-1)^k=\sum_{k=0}^{n}(-1)^k\binom{n}{k}.\]
     Tento součet si však můžeme rozdělit na dvě sumy podle toho, zda je $k$ sudé nebo liché:
-    \[\sum_{k=0}^{n}(-1)^k\binom{n}{k}=\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{sudé}}}^{n}(-1)^k\binom{n}{k}+\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{liché}}}^{n}(-1)^k\binom{n}{k}=\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{sudé}}}^{n}\binom{n}{k}-\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{liché}}}^{n}\binom{n}{k}.\]
+    \[\sum_{k=0}^{n}(-1)^k\binom{n}{k}=\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{sudé}}}(-1)^k\binom{n}{k}+\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{liché}}}(-1)^k\binom{n}{k}=\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{sudé}}}\binom{n}{k}-\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{liché}}}\binom{n}{k}.\]
     U první sumy, kde $k$ je sudé, je výraz $(-1)^k$ vždy roven jedné a u druhé sumy, kde $k$ je liché je naopak $(-1)^k$ vždy rovno $-1$, přičemž toto číslo jsme vytkli z celé sumy. Na začátku jsme však začínali s nulou a tedy platí
-    \[\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{sudé}}}^{n}\binom{n}{k}-\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{liché}}}^{n}\binom{n}{k}=0.\]
+    \[\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{sudé}}}\binom{n}{k}-\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{liché}}}\binom{n}{k}=0.\]
     Přičtením druhé sumy k celé rovnosti, tj.
-    \[\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{liché}}}^{n}\binom{n}{k},\]
+    \[\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{liché}}}\binom{n}{k},\]
     dostaneme
-    \[\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{sudé}}}^{n}\binom{n}{k}=\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{liché}}}^{n}\binom{n}{k}\]
+    \[\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{sudé}}}\binom{n}{k}=\sum_{\substack{0\,\leqslant\,k\,\leqslant\,n \\ k\,\text{liché}}}\binom{n}{k}\]
     neboli
     \[\binom{n}{0}+\binom{n}{2}+\binom{n}{4}+\cdots=\binom{n}{1}+\binom{n}{3}+\binom{n}{5}+\cdots\]
     Kombinatoricky obě strany rovnosti vyjadřují počty výběrů z $n$ prvkové množiny se sudým, resp. lichým počtem prvků. Protože jsou si však tyto počty rovny, dostáváme tvrzení věty.
 \end{proof}
 \begin{proof}[Důkaz druhý]
-    Rovnost lze také zdůvodnit kombinatoricky. Uvažme, že provádíme výběr z množiny $\set{1,\,\dots,\,n}$. Dále uvažujme následující operace: pokud vybraná množina prvků obsahuje číslo 1, pak jej z množiny odstraníme a naopak pokud vybraná množina neobsahuje číslo 1, pak jej do množiny přidáme. V obou případech se tak vždy změní počet prvků o jeden, tedy z výběru sudé velikosti se stane výběr liché velikosti a naopak. Ke každý výběr sudé velikosti tak lze "spárovat" s výběrem liché velikosti a tedy výběrů obou typů musí být stejně mnoho.
+    Rovnost lze také zdůvodnit kombinatoricky. Uvažme, že provádíme výběr z množiny $\set{1,\,\dots,\,n}$. Dále uvažujme následující operace: pokud vybraná množina prvků obsahuje číslo 1, pak jej z množiny odstraníme a naopak pokud vybraná množina neobsahuje číslo 1, pak jej do množiny přidáme. V obou případech se tak vždy změní počet prvků o jeden, tedy z výběru sudé velikosti se stane výběr liché velikosti a naopak. Každý výběr sudé velikosti tak lze "spárovat" s výběrem liché velikosti a tedy výběrů obou typů musí být stejně mnoho.
+\end{proof}
+
+Poslední, co si zde zmíníme, je tzv. \emph{Vandermondova identita} (též \emph{konvoluce}), kterou později využijeme.
+\begin{theorem}[Vandermondova identita]\label{thm:vandermondova_identita}
+    Pro všechna $n,\,m,\,r\in\N_0$ platí
+    \[\sum_{k=0}^{r}\binom{n}{k}\binom{m}{r-k}=\binom{n+m}{r}.\]
+\end{theorem}
+\begin{proof}
+    Důkaz lze provést (jako u všech ostatních vztahů) výpočtem, ale zde si vystačíme s kombinatorickou interpretací. Představme si, že máme komisi sestávající z $m$ mužů a $n$ žen. Pravá strana udává počet všech možných $r$-tic, které lze vybrat z komise. Těch je $\binom{n+m}{r}$. Obecný sčítanec $\binom{n}{k}\binom{m}{r-k}$ na pravé straně udává počet všech $r$-tic s právě $k$ ženami a $r-k$ muži. Součtem přes všechna $k$ musíme obdržet počet všech možných $r$-tic.
 \end{proof}

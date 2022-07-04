@@ -5,4 +5,5 @@ Text obsahuje popis a užití základních principů středoškolské kombinator
 ## Obsah
 - **Základní pojmy a značení.** (TODO: popis)
 - **Základy kombinatorického počítání.** (TODO: popis)
-- **Kombinatorické identity**. Shrnutí některých základních vlastností kombinačních čísel a vztahů mezi nimi.
+- **Kombinatorické identity.** Shrnutí některých základních vlastností kombinačních čísel a vztahů mezi nimi a především binomická věta.
+- **Základy teorie pravděpodobnosti.** Základy k teorii pravděpodobnosti.
