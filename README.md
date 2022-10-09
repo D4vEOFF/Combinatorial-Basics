@@ -6,7 +6,7 @@
 - [Další literatura](#další-literatura)
 
 # Základní informace
-- **Název**: Základy středoškolské matematiky
+- **Název**: Základy středoškolské kombinatoriky
 - **Autor**: David Weber
 - **Email**: david.weber99@seznam.cz
 - **Téma**: Kombinatorika a pravděpodobnost
