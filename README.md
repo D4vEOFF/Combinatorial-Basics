@@ -13,7 +13,7 @@ Stejně jako jiné věci, ani tento text není dokonalý a může obsahovat chyb
 
 # Obsah textu
 - **Úvodem.** Představení disciplíny, některých motivačních úloh a také základní práce s množinami.
-- **Kombinatorického počítání.** Základní principy kombinatorického počítání; zejména *pravidlo součtu a součinu* (bez důkazu) a *variace, permutace a kombinace bez opakování*.
+- **Kombinatorické počítání.** Základní principy kombinatorického počítání; zejména *pravidlo součtu a součinu* (bez důkazu) a *variace, permutace a kombinace bez opakování*.
 - **Kombinatorické identity.** Shrnutí některých základních *vlastností kombinačních čísel*, vztahů mezi nimi a především *binomická věta*.
 - **Základy teorie pravděpodobnosti.** Základy k teorii pravděpodobnosti: co rozumíme pod pojmem *pravděpodobnost*, příklady na procvičení a koncept *nezávislých jevů*.
 
